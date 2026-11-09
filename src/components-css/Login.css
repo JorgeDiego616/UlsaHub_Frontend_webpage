@@ -1,0 +1,84 @@
+/* Paleta: azul marino, rojo suave y blanco cielo */
+:root {
+  --navy: #0b1f3a;
+  --soft-red: #e36b6b;
+  --soft-red-dark: #d45656;
+  --sky-white: #f2f8fd;
+}
+
+/* Fondo de pantalla completa en blanco cielo, con la tarjeta centrada */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--sky-white);
+  padding: 1rem;
+  border-radius: 12px;
+  transition: background .3s;
+}
+
+/* Corregido: se quitó el :hover que oscurecía toda la pantalla al mover el mouse. */
+
+/* Tarjeta: blanca, bordes redondeados y sombra suave */
+.login-card {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(11, 31, 58, 0.1);
+  text-align: left;
+}
+
+/* Título en azul marino con una línea roja suave como detalle */
+.login-title {
+  color: var(--navy);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--soft-red);
+  width: fit-content;
+}
+
+/* Etiquetas de los campos */
+.login-label {
+  color: var(--navy);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* Inputs: borde sutil que se vuelve azul marino al enfocar */
+.login-input {
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #cfdbe8;
+  border-radius: 8px;
+  background: var(--sky-white);
+  color: var(--navy);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.login-input:focus {
+  border-color: var(--navy);
+}
+
+/* Botón rojo suave que se oscurece un poco al pasar el cursor */
+.login-button {
+  margin-top: 1.25rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--soft-red);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.login-button:hover {
+  background: var(--soft-red-dark);
+}

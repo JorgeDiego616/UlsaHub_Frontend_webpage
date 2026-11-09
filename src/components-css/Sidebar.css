@@ -1,0 +1,58 @@
+/* Contenedor: mismo cristal oscuro que el panel para que combinen */
+.sidebar-izquierdo {
+  /* Fondo oscuro semitransparente un poco más claro para distinguirse del fondo */
+  background: rgba(70, 87, 148, 0.78);
+  /* Borde claro muy tenue que marca el filo del cristal */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 20px;
+  /* Sombra profunda para dar sensación premium */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  /* Desenfoca lo que hay detrás para el efecto vidrio */
+  backdrop-filter: blur(12px);
+}
+
+/* Título del menú */
+.sidebar-titulo {
+  text-align: center;
+  color: #9cb3f1;
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+}
+
+/* Lista sin viñetas ni márgenes por defecto */
+.sidebar-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* una opción debajo de otra */
+  gap: 8px;
+}
+
+/* Cada opción ocupa todo el ancho. Se redefine el fondo porque
+   tu CSS global le da fondo oscuro a todos los <button> */
+.sidebar-boton {
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  /* Mismo color que el título "Menú" para que todo el texto combine */
+  color: #9cb3f1;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Al pasar el mouse */
+.sidebar-boton:hover {
+  background: #dbe6fb;
+}
+
+/* Opción de la vista actual */
+.sidebar-boton.activo {
+  background: #2563eb;
+  color: #fff;
+}

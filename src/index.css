@@ -1,0 +1,217 @@
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  /* Color base muy oscuro azul noche para el fondo premium */
+  background-color: #0a0e1f;
+  /* 3 manchas de luz difusas (violeta, azul eléctrico y rosa) en esquinas distintas */
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(124, 92, 255, 0.25), transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(37, 99, 235, 0.22), transparent 50%),
+    radial-gradient(circle at 50% 95%, rgba(255, 122, 182, 0.18), transparent 50%);
+  /* Fija el fondo para que no se corte ni se repita al hacer scroll */
+  background-attachment: fixed;
+  /* Evita que los degradados se repitan como mosaico */
+  background-repeat: no-repeat;
+  /* quita display: flex y place-items: center */
+}
+
+/* Corregido: se quitaron los outlines rojo/verde/azul que eran solo de depuración. */
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* Corregido: el botón global ya no es oscuro, así ninguno queda de color negro por defecto. */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #f9f9f9;
+  color: #213547;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    /* Corregido: un degradado no va en background-color, va en background. */
+    background: linear-gradient(#535bf2,#adacf5,#f9f9f9);
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+
+
+nav {
+    background: #3a3939;
+    position: fixed;
+    width: 100%;
+    height: 20px;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    z-index: 1; /* Esto hace que el nav este por debajo de las secciones */
+    transition: height 0.4s;
+}
+
+nav ul {
+    display: flex; /* Esto hace que los elementos hijos se pongan en fila */
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    list-style: none;
+    margin-left: 45px;
+    /* Oculto por defecto */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;  
+}
+
+nav ul li a {
+    font-family: "Space Mono", monospace;
+    color: #999494;
+    font-weight: bold;
+    font-size: 20px;
+    transition: font-size 0.4s;
+}
+
+nav:hover {
+  height: 80px;
+}
+
+/* aparecen los elementos */
+nav:hover ul li {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.15s; /* esperan un poco a que la barra crezca */
+}
+
+nav:hover ul li a {
+  font-size: 30px;
+}
+
+
+
+/* Fondo del área: transparente para que se vea el fondo oscuro de la página */
+.main-content {
+  display: flex;
+  gap: 24px;  /* separación entre sidebar y panel */
+
+  /* Antes era gris claro; ahora deja pasar el fondo oscuro */
+  background: transparent;
+  padding: 40px 20px;
+  min-height: 80vh;
+  /* Borde casi invisible para no romper el look premium */
+  border: 2px solid rgba(255, 255, 255, 0.336);
+  border-radius: 16px;
+}
+
+
+/* EL CUADRO: cristal oscuro con borde sutil y sombra profunda */
+.panel {
+  flex: 1;           /* ocupa todo el espacio restante */
+  /* Fondo oscuro semitransparente un poco más claro para distinguirse del fondo */
+  background: rgba(54, 72, 134, 0.78);
+  /* Borde claro muy tenue que marca el filo del cristal */
+  border: 1px solid rgba(243, 205, 205, 0.293);
+  border-radius: 16px;
+  padding: 32px;
+  /* Sombra profunda para dar sensación premium */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  /* Desenfoca lo que hay detrás para el efecto vidrio */
+  backdrop-filter: blur(12px);
+}
+
+/* Título en azul, con tipografía limpia */
+.hero h1 {
+  color: #2563eb;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+.hero p {
+  color: #64748b;            /* gris azulado para el texto secundario */
+  margin: 0 0 24px;
+}
+
+/* Cuadrícula de tarjetas: se acomodan solas según el ancho */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* Spinner dentro del área de tarjetas: ocupa todo el ancho del grid y se centra */
+.cards-cargando {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+/* Tarjetas: casi blancas, con borde azul claro */
+.card {
+  gap: 10px;
+  background: #f8fbff;
+  border: 3px solid #dbe6fb;
+  border-radius: 12px;
+  padding: 20px;
+  border-color: #f18a8a;
+}
+.card h2 { color: #1e3a8a; font-size: 1.1rem; margin-top: 0; }
+.card a  { color: #2563eb; text-decoration: none; }
+.card a:hover { text-decoration: underline; }
+
+/* Lateral: separado por una línea fina */
+.sidebar {
+  margin-top: 24px;
+  padding-top: 20px;
+  /*border-top: 1px solid #dbe6fb;*/
+
+  width: 250px;              /* ancho fijo del sidebar */
+  flex-shrink: 0;            /* evita que se aplaste */
+}
+
+.sidebar h3 {
+  color: #dbe6fb;
+}
+
+.sidebar ul li {
+  color: #dbe6fb;
+}
+
+/* ------------------------ */
+
+/* Diseño del navbar */
+

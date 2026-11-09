@@ -1,0 +1,59 @@
+/*#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}*/
+
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Corregido: se eliminó el .card duplicado de aquí para que no pisara
+   el padding que ya define index.css. */
+
+.read-the-docs {
+  color: #888;
+}
+
+
+
+/* App.css para el sidebar.jsx */
+/* Contenedor general: solo deja espacio para el nav fijo y separa del borde inferior */
+.layout {
+  /* Corregido: el grid ahora lo hace Bootstrap, por eso ya no usamos flex ni gap */
+  padding: 80px 0 24px;
+}
+
+/* Se quitaron .layout-sidebar y .layout-contenido porque ahora se usan columnas de Bootstrap. */
+
+/* el main-content también debe llenar su columna */
+.main-content {
+  width: 100%;
+  box-sizing: border-box;
+}
